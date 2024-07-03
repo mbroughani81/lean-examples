@@ -26,6 +26,9 @@ theorem t3 : p → (p → q) → q  :=
   fun hq : (p -> q) =>
   hq hp
 
+theorem t3' (hp : p) : (p → q) → q  :=
+  fun hq : (p -> q) =>
+  hq hp
 
 axiom hp : p
 theorem t2 {p q : Prop} : q → p := t1 hp
