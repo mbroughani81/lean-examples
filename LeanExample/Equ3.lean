@@ -17,7 +17,10 @@ example (x y : Nat) : (x + y) * (x + y) = x * x + y * x + x * y + y * y :=
   have h1 : (x + y) * (x + y) = (x + y) * x + (x + y) * y :=
     Nat.mul_add (x + y) x y
   have ddd₁ := (Nat.add_mul x y y) ▸ h1
-  have ddd₂ := (Nat.add_mul x y x) ▸ h1
+  have ddd₂ := (Nat.add_mul x y x) ▸ (Nat.add_mul x y y) ▸ h1
   have h2 : (x + y) * (x + y) = x * x + y * x + (x * y + y * y) :=
     (Nat.add_mul x y x) ▸ (Nat.add_mul x y y) ▸ h1
+  have ddd₃ := Nat.add_assoc (x * x + y * x) (x * y) (y * y)
+  have ddd₄ := ddd₃.symm
+  h2
   h2.trans (Nat.add_assoc (x * x + y * x) (x * y) (y * y)).symm
