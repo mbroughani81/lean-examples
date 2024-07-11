@@ -11,6 +11,9 @@ variable (h : r → s)
 #check t1 (r → s) (s → r)
 #check t1 (r → s) (s → r) h
 
+theorem g1 (h₁ : p → q) (h₂ : p) : q :=
+  h₁ h₂
+
 theorem t2 (h₁ : q → r) (h₂ : p → q) : p → r :=
   fun h₃ : p =>
   h₁ (h₂ h₃)
