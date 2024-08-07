@@ -16,6 +16,14 @@ theorem example1 (a b c : Nat) (h : a = b) (h2 : b = c) : a = c :=
     rw [h]
     rw [h2]
 
+-- opaque a₁ : Nat
+-- opaque b₁ : Nat
+variable (a₁ b₁ : Nat)
+-- def xxxxx := a₁ = b₁
+def xxxxx := Eq a₁ b₁
+#check xxxxx
+#print xxxxx
+
 opaque f : Nat → Nat
 opaque g : Nat → Nat
 opaque h : Nat → Nat → Nat → Prop
@@ -62,4 +70,3 @@ theorem add_comm (m n : Nat) : add m n = add n m :=
     induction n with
     | zero       => simp [add, add_zero]
     | succ n' ih => simp [add, add_succ, ih]
-

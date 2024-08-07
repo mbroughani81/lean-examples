@@ -37,8 +37,11 @@ theorem no_Step_to_0_0 (s : Score) :
     intro h
     cases h
 
-inductive Or' (a b : Prop) : Prop where
+inductive Or' : Prop → Prop → Prop where
   | inl : a → Or' a b
+
+-- inductive Or' (a b : Prop) : Prop where
+--   | inl : a → Or' a b
 
 opaque p : Prop
 opaque q : Prop
